@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>礼事利 · 柑果白兰地</title>
-    <!-- Font Awesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ===== 全局重置 & 基础 ===== */
+        /* ===== RESET & VARIABLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -20,10 +19,8 @@
             --gold-dark: #a8893e;
             --dark: #1a1510;
             --dark-soft: #2a241e;
-            --cream: #faf6ed;
             --text-light: #f5f0e8;
             --text-muted: #b8ae9e;
-            --shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
             --radius: 12px;
             --transition: 0.35s ease;
         }
@@ -40,7 +37,6 @@
             overflow-x: hidden;
         }
 
-        /* 滚动条定制 */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -67,7 +63,6 @@
             padding: 0 28px;
         }
 
-        /* ===== 辅助类 ===== */
         .section-title {
             font-size: 2.2rem;
             font-weight: 600;
@@ -93,11 +88,7 @@
             margin-bottom: 40px;
         }
 
-        .gold-text {
-            color: var(--gold);
-        }
-
-        /* ===== 顶部导航 ===== */
+        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 0;
@@ -107,7 +98,6 @@
             background: rgba(26, 21, 16, 0.88);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(201, 168, 94, 0.15);
-            transition: var(--transition);
         }
         .navbar .container {
             display: flex;
@@ -126,7 +116,6 @@
         }
         .nav-brand i {
             font-size: 1.6rem;
-            color: var(--gold);
         }
         .nav-links {
             display: flex;
@@ -137,7 +126,6 @@
         .nav-links a {
             color: var(--text-light);
             font-size: 0.95rem;
-            letter-spacing: 0.5px;
             padding: 6px 0;
             border-bottom: 2px solid transparent;
             transition: var(--transition);
@@ -147,7 +135,6 @@
             color: var(--gold);
             border-bottom-color: var(--gold);
         }
-
         .nav-toggle {
             display: none;
             font-size: 1.6rem;
@@ -157,37 +144,20 @@
             border: none;
         }
 
-        /* ===== Hero 区 ===== */
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(201, 168, 94, 0.08) 0%, transparent 70%),
-                radial-gradient(ellipse at 80% 20%, rgba(201, 168, 94, 0.05) 0%, transparent 50%),
-                var(--dark);
+            background: radial-gradient(ellipse at 20% 50%, rgba(201, 168, 94, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(201, 168, 94, 0.05) 0%, transparent 50%), var(--dark);
             padding-top: 72px;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -20%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(201, 168, 94, 0.06) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
         }
         .hero .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-            position: relative;
-            z-index: 2;
             padding-top: 20px;
             padding-bottom: 40px;
         }
@@ -206,13 +176,11 @@
             margin: 20px 0 32px;
             max-width: 480px;
             font-weight: 300;
-            letter-spacing: 1px;
         }
         .hero-badges {
             display: flex;
             flex-wrap: wrap;
             gap: 14px 24px;
-            margin-top: 16px;
         }
         .hero-badges .badge {
             display: flex;
@@ -224,64 +192,33 @@
             border-radius: 40px;
             font-size: 0.9rem;
             color: var(--gold-light);
-            backdrop-filter: blur(4px);
         }
         .hero-badges .badge i {
-            font-size: 1rem;
             color: var(--gold);
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         .hero-bottle {
             width: 100%;
             max-width: 400px;
             aspect-ratio: 3/4;
-            background: linear-gradient(145deg, rgba(201, 168, 94, 0.10), rgba(201, 168, 94, 0.02));
+            background: rgba(201, 168, 94, 0.05);
             border-radius: 60px 60px 30px 30px;
             border: 1px solid rgba(201, 168, 94, 0.15);
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            position: relative;
-            padding: 30px 20px;
+            padding: 20px;
             backdrop-filter: blur(4px);
+            overflow: hidden;
         }
-        .hero-bottle i {
-            font-size: 7rem;
-            color: var(--gold);
-            opacity: 0.6;
-            margin-bottom: 16px;
-        }
-        .hero-bottle .bottle-label {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--gold);
-            letter-spacing: 4px;
-            text-align: center;
-        }
-        .hero-bottle .bottle-sub {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            margin-top: 6px;
-        }
-        .hero-bottle .bottle-year {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: var(--gold-dark);
-            border-top: 1px solid rgba(201, 168, 94, 0.2);
-            padding-top: 16px;
-            width: 60%;
-            text-align: center;
+        .hero-bottle img {
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+            border-radius: 20px;
         }
 
-        /* ===== 通用 section ===== */
+        /* ===== SECTIONS ===== */
         section {
             padding: 80px 0;
             background: var(--dark);
@@ -290,7 +227,7 @@
             background: var(--dark-soft);
         }
 
-        /* ===== 关于 ===== */
+        /* ===== ABOUT ===== */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -336,10 +273,44 @@
             margin-top: 4px;
         }
 
-        /* ===== 产品 ===== */
+        /* ===== VIDEO SECTION ===== */
+        .video-wrapper {
+            margin-top: 20px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(201, 168, 94, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            background: #000;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+        .video-wrapper video,
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .video-caption {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 14px;
+            letter-spacing: 1px;
+        }
+        .video-caption i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+        /* ===== PRODUCTS ===== */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
             margin-top: 20px;
         }
@@ -347,22 +318,30 @@
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(201, 168, 94, 0.12);
             border-radius: var(--radius);
-            padding: 32px 24px 28px;
+            padding: 24px 20px 28px;
             text-align: center;
             transition: var(--transition);
-            backdrop-filter: blur(4px);
         }
         .product-card:hover {
             border-color: var(--gold);
             transform: translateY(-8px);
             box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-            background: rgba(201, 168, 94, 0.04);
         }
-        .product-card .icon {
-            font-size: 3rem;
-            color: var(--gold);
+        .product-card .image-wrap {
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
             margin-bottom: 16px;
-            opacity: 0.7;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-card .image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .product-card h4 {
             font-size: 1.2rem;
@@ -386,114 +365,41 @@
             gap: 20px;
             flex-wrap: wrap;
         }
-        .product-card .detail span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .product-card .detail i {
-            color: var(--gold);
-            font-size: 0.7rem;
-        }
 
-        /* ===== 资质 & 报告 ===== */
-        .cert-grid {
+        /* ===== GALLERY (Workshop + Certificates) ===== */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 20px;
         }
-        .cert-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(201, 168, 94, 0.08);
+        .gallery-item {
             border-radius: var(--radius);
-            padding: 28px 24px;
+            overflow: hidden;
+            border: 1px solid rgba(201, 168, 94, 0.1);
+            background: rgba(0, 0, 0, 0.3);
             transition: var(--transition);
         }
-        .cert-item:hover {
-            border-color: rgba(201, 168, 94, 0.3);
-            background: rgba(201, 168, 94, 0.03);
+        .gallery-item:hover {
+            border-color: var(--gold);
+            transform: scale(1.02);
         }
-        .cert-item .top {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 12px;
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
         }
-        .cert-item .top i {
-            font-size: 2rem;
-            color: var(--gold);
-            width: 44px;
+        .gallery-item .label {
+            padding: 12px 16px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
             text-align: center;
-        }
-        .cert-item .top h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--gold-light);
-        }
-        .cert-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-left: 60px;
-            line-height: 1.7;
-        }
-        .cert-item .meta {
-            font-size: 0.8rem;
-            color: var(--gold-dark);
-            margin-top: 10px;
-            margin-left: 60px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px 20px;
-        }
-        .cert-item .meta i {
-            color: var(--gold);
-            margin-right: 4px;
+            border-top: 1px solid rgba(201, 168, 94, 0.05);
+            background: rgba(0, 0, 0, 0.2);
         }
 
-        /* ===== 检测报告摘要 ===== */
-        .report-summary {
-            margin-top: 40px;
-            background: rgba(201, 168, 94, 0.04);
-            border-radius: var(--radius);
-            border: 1px solid rgba(201, 168, 94, 0.08);
-            padding: 32px 28px;
-        }
-        .report-summary h4 {
-            color: var(--gold);
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .report-summary .cols {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-        }
-        .report-summary .cols .item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(201, 168, 94, 0.06);
-            color: var(--text-muted);
-            font-size: 0.92rem;
-        }
-        .report-summary .cols .item .val {
-            color: var(--gold-light);
-            font-weight: 500;
-        }
-        .report-summary .footnote {
-            margin-top: 18px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            opacity: 0.7;
-            border-top: 1px solid rgba(201, 168, 94, 0.06);
-            padding-top: 16px;
-        }
-
-        /* ===== 联系 ===== */
+        /* ===== CONTACT ===== */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -513,9 +419,6 @@
             width: 32px;
             margin-top: 4px;
         }
-        .contact-info .info-item .content {
-            flex: 1;
-        }
         .contact-info .info-item .content .label {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -527,7 +430,6 @@
             color: var(--text-light);
             word-break: break-word;
         }
-
         .contact-map {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(201, 168, 94, 0.08);
@@ -546,29 +448,18 @@
             opacity: 0.3;
             margin-bottom: 20px;
         }
-        .contact-map p {
-            color: var(--text-muted);
-            max-width: 320px;
-            font-size: 0.95rem;
-        }
         .contact-map .addr {
             color: var(--gold-light);
             font-weight: 500;
             margin-top: 8px;
         }
 
-        /* ===== Footer ===== */
+        /* ===== FOOTER ===== */
         footer {
             background: var(--dark-soft);
             border-top: 1px solid rgba(201, 168, 94, 0.06);
             padding: 36px 0;
             text-align: center;
-        }
-        footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
         }
         footer .brand {
             font-size: 1.2rem;
@@ -580,19 +471,15 @@
             color: var(--text-muted);
             font-size: 0.85rem;
             opacity: 0.6;
-        }
-        footer .copy a {
-            color: var(--gold-dark);
-        }
-        footer .copy a:hover {
-            color: var(--gold);
+            margin-top: 8px;
         }
 
-        /* ===== 响应式 ===== */
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
-            .hero .container {
+            .hero .container,
+            .about-grid,
+            .contact-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
             }
             .hero-content .tagline {
                 margin-left: auto;
@@ -603,12 +490,6 @@
             }
             .hero-bottle {
                 max-width: 280px;
-            }
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
             }
             .section-title::after {
                 margin-left: auto;
@@ -643,26 +524,11 @@
             .hero-content h1 {
                 font-size: 2.6rem;
             }
-            .hero-bottle {
-                max-width: 220px;
-            }
-            .hero-bottle i {
-                font-size: 4rem;
-            }
-            .hero-bottle .bottle-label {
-                font-size: 1.2rem;
-            }
             .section-title {
                 font-size: 1.8rem;
             }
             .product-grid {
                 grid-template-columns: 1fr 1fr;
-            }
-            .about-stats {
-                grid-template-columns: 1fr 1fr;
-            }
-            .report-summary .cols {
-                grid-template-columns: 1fr;
             }
         }
 
@@ -673,21 +539,8 @@
             .hero-content h1 {
                 font-size: 2rem;
             }
-            .hero-badges .badge {
-                font-size: 0.75rem;
-                padding: 6px 14px;
-            }
-            .contact-info .info-item .content .value {
-                font-size: 0.9rem;
-            }
-            .cert-item .top h4 {
-                font-size: 0.95rem;
-            }
-            .cert-item p {
-                margin-left: 0;
-            }
-            .cert-item .meta {
-                margin-left: 0;
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
             }
         }
     </style>
@@ -695,7 +548,7 @@
 <body>
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
                 <i class="fas fa-wine-bottle"></i>
@@ -703,11 +556,12 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">关于</a></li>
+                <li><a href="#video">视频</a></li>
                 <li><a href="#products">产品</a></li>
-                <li><a href="#certificates">资质</a></li>
+                <li><a href="#gallery">实景</a></li>
                 <li><a href="#contact">联系</a></li>
             </ul>
-            <button class="nav-toggle" id="navToggle" aria-label="切换菜单">
+            <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -717,10 +571,7 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>
-                    礼事利<br />
-                    <span>柑果白兰地</span>
-                </h1>
+                <h1>礼事利<br /><span>柑果白兰地</span></h1>
                 <p class="tagline">
                     源自新会柑的馥郁芳香，经橡木桶陈酿，成就醇和甘润的南粤风味。
                 </p>
@@ -732,10 +583,8 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-bottle">
-                    <i class="fas fa-wine-bottle"></i>
-                    <div class="bottle-label">礼事利</div>
-                    <div class="bottle-sub">柑果白兰地 · VSOP</div>
-                    <div class="bottle-year">陈酿 · 700mL / 200mL</div>
+                    <!-- ★ 替换为你的主产品图片 -->
+                    <img src="images/hero-bottle.jpg" alt="礼事利柑果白兰地" />
                 </div>
             </div>
         </div>
@@ -746,22 +595,21 @@
         <div class="container">
             <h2 class="section-title">关于礼事利</h2>
             <p class="section-sub">传承匠心，酿制南粤风土之味</p>
-
             <div class="about-grid">
                 <div class="about-text">
                     <p>
-                        <strong>礼事利（广东）酒业有限公司</strong> 坐落于广东省中山市，是一家专注于
-                        水果白兰地酿造的企业。我们以 <strong>新会柑</strong> 为核心原料，结合传统
-                        蒸馏工艺与现代陈酿技术，打造具有岭南特色的柑果白兰地。
+                        <strong>礼事利（广东）酒业有限公司</strong> 位于中山市南区树涌工业区，
+                        是一家专注于酒制品生产与销售的企业。主打酿造柑果白兰地、陈皮酒、
+                        陈皮白兰地、柑香酒、桂花酒等特色果酒。
                     </p>
                     <p>
-                        公司持有 <strong>食品生产许可证（SC11544200008681）</strong>，产品经
-                        秦皇岛海关技术中心等权威机构检测，甲醇、铅、氰化物等指标均符合国家标准，
-                        酯类、醛类、高级醇等风味物质丰富，品质稳定。
+                        公司以 <strong>新会茶枝柑</strong> 为灵魂原料，果皮陈化为药，果肉酿造成酒，
+                        实现「一果双生，皮肉皆珍」的酿造哲学。产品经法国、美国橡木桶陈酿，
+                        酒体琥珀透亮，果香与酒韵交织，口感醇和甘润。
                     </p>
                     <p>
-                        从果园到酒瓶，我们严格把控每一道工序，致力于为消费者带来
-                        <strong>醇和、甘润、丰满、绵柔</strong> 的品饮体验。
+                        持有食品生产许可证（SC11544200008681），所有产品均通过秦皇岛海关技术中心
+                        权威检测，品质稳定可靠。
                     </p>
                 </div>
                 <div class="about-stats">
@@ -778,34 +626,48 @@
                         <span class="label">优级品质等级</span>
                     </div>
                     <div class="stat-card">
-                        <span class="num">6+</span>
-                        <span class="label">g/L 非酒精挥发物</span>
+                        <span class="num">30+</span>
+                        <span class="label">年橡木桶陈酿能力</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===== VIDEO SECTION ===== -->
+    <section id="video" class="alt">
+        <div class="container">
+            <h2 class="section-title">品牌影片</h2>
+            <p class="section-sub">走进礼事利 · 感受柑香酿造之美</p>
+
+            <div class="video-wrapper">
+                <!-- ★ 选项1: 本地MP4文件 (推荐) -->
+                <video controls playsinline preload="metadata">
+                    <source src="video/company-intro.mp4" type="video/mp4" />
+                    您的浏览器不支持视频播放，请升级浏览器或使用其他设备观看。
+                </video>
+
+                <!-- ★ 选项2: 如果你用YouTube / Vimeo，请把上面整个 <video> 标签替换为下面这行 (取消注释并填入你的链接) -->
+                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen loading="lazy"></iframe> -->
+            </div>
+            <div class="video-caption">
+                <i class="fas fa-play-circle"></i> 点击播放 · 了解礼事利的酿造故事
+            </div>
+        </div>
+    </section>
+
     <!-- ===== PRODUCTS ===== -->
-    <section id="products" class="alt">
+    <section id="products">
         <div class="container">
             <h2 class="section-title">产品系列</h2>
             <p class="section-sub">不同桶型与规格，诠释柑果白兰地的多元魅力</p>
 
             <div class="product-grid">
-                <!-- 1 -->
+                <!-- 法桶 700mL -->
                 <div class="product-card">
-                    <div class="icon"><i class="fas fa-wine-bottle"></i></div>
-                    <h4>柑香白兰地 VSOP</h4>
-                    <div class="sub">美桶 · 700mL</div>
-                    <div class="detail">
-                        <span><i class="fas fa-percent"></i> 39.3% vol</span>
-                        <span><i class="fas fa-flask"></i> 酯类 1.606 g/L</span>
+                    <div class="image-wrap">
+                        <img src="images/product-french-700.jpg" alt="柑香白兰地 VSOP 法桶 700mL" />
                     </div>
-                </div>
-                <!-- 2 -->
-                <div class="product-card">
-                    <div class="icon"><i class="fas fa-wine-bottle"></i></div>
                     <h4>柑香白兰地 VSOP</h4>
                     <div class="sub">法桶 · 700mL</div>
                     <div class="detail">
@@ -813,115 +675,65 @@
                         <span><i class="fas fa-flask"></i> 酯类 1.794 g/L</span>
                     </div>
                 </div>
-                <!-- 3 -->
+
+                <!-- 美桶 700mL -->
                 <div class="product-card">
-                    <div class="icon"><i class="fas fa-wine-bottle"></i></div>
+                    <div class="image-wrap">
+                        <img src="images/product-american-700.jpg" alt="柑香白兰地 VSOP 美桶 700mL" />
+                    </div>
                     <h4>柑香白兰地 VSOP</h4>
-                    <div class="sub">美桶 · 200mL</div>
+                    <div class="sub">美桶 · 700mL</div>
                     <div class="detail">
-                        <span><i class="fas fa-percent"></i> 39.1% vol</span>
-                        <span><i class="fas fa-flask"></i> 酯类 1.620 g/L</span>
+                        <span><i class="fas fa-percent"></i> 39.3% vol</span>
+                        <span><i class="fas fa-flask"></i> 酯类 1.606 g/L</span>
                     </div>
                 </div>
-                <!-- 4 -->
+
+                <!-- 200mL 礼盒 (法桶) -->
                 <div class="product-card">
-                    <div class="icon"><i class="fas fa-wine-bottle"></i></div>
+                    <div class="image-wrap">
+                        <img src="images/product-giftbox-200.jpg" alt="柑香白兰地 200mL 礼盒装" />
+                    </div>
                     <h4>柑香白兰地 VSOP</h4>
-                    <div class="sub">法桶 · 200mL</div>
+                    <div class="sub">法桶 · 200mL 三支装礼盒</div>
                     <div class="detail">
                         <span><i class="fas fa-percent"></i> 39.2% vol</span>
-                        <span><i class="fas fa-flask"></i> 酯类 1.813 g/L</span>
+                        <span><i class="fas fa-gift"></i> 精致礼盒</span>
                     </div>
-                </div>
-                <!-- 5 -->
-                <div class="product-card">
-                    <div class="icon"><i class="fas fa-wine-bottle"></i></div>
-                    <h4>柑果白兰地</h4>
-                    <div class="sub">700mL</div>
-                    <div class="detail">
-                        <span><i class="fas fa-percent"></i> 40.9% vol</span>
-                        <span><i class="fas fa-flask"></i> 酯类 1.471 g/L</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 检测报告摘要 -->
-            <div class="report-summary">
-                <h4><i class="fas fa-file-alt"></i> 权威检测 · 品质印证</h4>
-                <div class="cols">
-                    <div class="item"><span>甲醇</span><span class="val">≤ 2.0 g/L · 0.5~0.6 g/L</span></div>
-                    <div class="item"><span>铅</span><span class="val">未检出 (&lt;0.05 mg/kg)</span></div>
-                    <div class="item"><span>氰化物</span><span class="val">≤ 8.0 mg/L · 0.25~0.34 mg/L</span></div>
-                    <div class="item"><span>非酒精挥发物</span><span class="val">≥ 0.75 · 6.37~7.10 g/L</span></div>
-                    <div class="item"><span>糖精钠 / 安赛蜜</span><span class="val">未经批准使用 · 未检出</span></div>
-                    <div class="item"><span>净含量</span><span class="val">700mL / 200mL · 合格</span></div>
-                </div>
-                <div class="footnote">
-                    <i class="fas fa-check-circle" style="color: var(--gold);"></i>
-                    检测依据：GB 5009.225-2023、GB/T 11856.2-2023 等。报告编号：13010WTP202400611 等。
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== CERTIFICATES ===== -->
-    <section id="certificates">
+    <!-- ===== GALLERY (Workshop + Certificates) ===== -->
+    <section id="gallery" class="alt">
         <div class="container">
-            <h2 class="section-title">资质与认证</h2>
-            <p class="section-sub">合规生产，透明溯源</p>
+            <h2 class="section-title">酿造实景 &amp; 资质</h2>
+            <p class="section-sub">从压榨到陈酿，每一滴都凝聚匠心</p>
 
-            <div class="cert-grid">
-                <div class="cert-item">
-                    <div class="top">
-                        <i class="fas fa-certificate"></i>
-                        <h4>食品生产许可证</h4>
-                    </div>
-                    <p>
-                        编号 <strong>SC11544200008681</strong>，食品类别：酒类。<br />
-                        许可品种：配制酒（露酒）、其他蒸馏酒（水果白兰地、水果蒸馏酒）。
-                    </p>
-                    <div class="meta">
-                        <span><i class="far fa-calendar-alt"></i> 发证 2025.12.15</span>
-                        <span><i class="far fa-calendar-check"></i> 有效期至 2028.10.24</span>
-                        <span><i class="fas fa-building"></i> 中山市市场监督管理局</span>
-                    </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/workshop-press.jpg" alt="压榨车间" />
+                    <div class="label"><i class="fas fa-industry"></i> 压榨车间 · 鲜果萃取</div>
                 </div>
-
-                <div class="cert-item">
-                    <div class="top">
-                        <i class="fas fa-flask"></i>
-                        <h4>海关技术中心检测</h4>
-                    </div>
-                    <p>
-                        秦皇岛海关技术中心（国家葡萄酒检测重点实验室）出具多份检测报告，
-                        涵盖感官、乙醇浓度、甲醇、铅、氰化物、添加剂、净含量等全项指标。
-                    </p>
-                    <div class="meta">
-                        <span><i class="fas fa-check-circle"></i> 全部合格</span>
-                        <span><i class="fas fa-file-signature"></i> 报告编号 13010WTP202400611 等</span>
-                    </div>
+                <div class="gallery-item">
+                    <img src="images/workshop-storage.jpg" alt="存储车间" />
+                    <div class="label"><i class="fas fa-warehouse"></i> 存储车间 · 岁月陈酿</div>
                 </div>
-
-                <div class="cert-item">
-                    <div class="top">
-                        <i class="fas fa-leaf"></i>
-                        <h4>企业标准 Q/LSL 0001S</h4>
-                    </div>
-                    <p>
-                        产品执行企业标准 <strong>Q/LSL 0001S-2023</strong>，并符合
-                        GB 7718-2011、GB 2757-2012、GB 2760-2024 等国家食品安全标准。
-                    </p>
-                    <div class="meta">
-                        <span><i class="fas fa-tag"></i> 标准备案</span>
-                        <span><i class="fas fa-shield-alt"></i> 定量包装商品计量监督管理办法</span>
-                    </div>
+                <div class="gallery-item">
+                    <img src="images/workshop-distill.jpg" alt="二次蒸馏车间" />
+                    <div class="label"><i class="fas fa-fire"></i> 二次蒸馏 · 提纯精粹</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/certificates.jpg" alt="相关证书与注册商标" />
+                    <div class="label"><i class="fas fa-award"></i> 生产许可 &amp; 注册商标</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section id="contact" class="alt">
+    <section id="contact">
         <div class="container">
             <h2 class="section-title">联系礼事利</h2>
             <p class="section-sub">期待与您沟通合作</p>
@@ -983,7 +795,7 @@
                     <i class="fas fa-wine-glass-alt"></i>
                     <p>
                         <strong class="gold-text">礼事利 · 柑果白兰地</strong><br />
-                        源自新会柑，陈酿橡木香
+                        一果双生，皮肉皆珍
                     </p>
                     <div class="addr">
                         <i class="fas fa-location-dot" style="color: var(--gold);"></i>
@@ -1008,67 +820,53 @@
                 <a href="#" onclick="event.preventDefault();">粤ICP备XXXXXXXX号</a> &nbsp;·&nbsp;
                 生产许可 SC11544200008681
             </div>
-            <div class="copy" style="font-size: 0.75rem; opacity: 0.4;">
-                本网站展示信息仅供品牌形象使用，具体产品以实物及官方发布为准。
-            </div>
         </div>
     </footer>
 
     <!-- ===== JavaScript ===== -->
     <script>
-        // 移动端导航切换
+        // Mobile menu toggle
         const toggleBtn = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
 
         toggleBtn.addEventListener('click', () => {
             navLinks.classList.toggle('open');
             const icon = toggleBtn.querySelector('i');
-            if (navLinks.classList.contains('open')) {
-                icon.className = 'fas fa-times';
-            } else {
-                icon.className = 'fas fa-bars';
-            }
+            icon.className = navLinks.classList.contains('open') ? 'fas fa-times' : 'fas fa-bars';
         });
 
-        // 点击导航链接后关闭菜单（移动端）
+        // Close menu on link click (mobile)
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
-                const icon = toggleBtn.querySelector('i');
-                icon.className = 'fas fa-bars';
+                toggleBtn.querySelector('i').className = 'fas fa-bars';
             });
         });
 
-        // 导航滚动高亮
+        // Active link highlight on scroll
         const sections = document.querySelectorAll('section[id]');
         const navAnchors = document.querySelectorAll('.nav-links a');
 
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute('id');
-                }
+                const top = section.offsetTop - 100;
+                if (window.scrollY >= top) current = section.getAttribute('id');
             });
-            navAnchors.forEach(anchor => {
-                anchor.classList.remove('active');
-                if (anchor.getAttribute('href') === '#' + current) {
-                    anchor.classList.add('active');
-                }
+            navAnchors.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + current) a.classList.add('active');
             });
         });
 
-        // 平滑滚动（兼容）
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 if (href === '#') return;
                 e.preventDefault();
                 const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     </script>
