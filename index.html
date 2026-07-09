@@ -220,6 +220,40 @@
             background: var(--dark-soft);
         }
 
+        /* ===== VIDEO SECTION ===== */
+        .video-wrapper {
+            margin-top: 20px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(201, 168, 94, 0.15);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            background: #000;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+        }
+        .video-wrapper video,
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        .video-caption {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-top: 14px;
+            letter-spacing: 1px;
+        }
+        .video-caption i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
         /* ===== ABOUT (using a.jpg) ===== */
         .about-grid {
             display: grid;
@@ -538,6 +572,7 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#about">关于</a></li>
+                <li><a href="#video">视频</a></li>
                 <li><a href="#products">产品</a></li>
                 <li><a href="#workshop">车间</a></li>
                 <li><a href="#certificates">证书</a></li>
@@ -569,8 +604,30 @@
         </div>
     </section>
 
+    <!-- ===== VIDEO SECTION ===== -->
+    <section id="video" class="alt">
+        <div class="container">
+            <h2 class="section-title">品牌影片</h2>
+            <p class="section-sub">走进礼事利 · 感受柑香酿造之美</p>
+
+            <div class="video-wrapper">
+                <!-- ★ OPTION 1: Local MP4 file (place company-intro.mp4 in the same folder) -->
+                <video controls playsinline preload="metadata">
+                    <source src="company-intro.mp4" type="video/mp4" />
+                    您的浏览器不支持视频播放，请升级浏览器或使用其他设备观看。
+                </video>
+
+                <!-- ★ OPTION 2: YouTube embed (uncomment this and comment out the <video> tag above) -->
+                <!-- <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen loading="lazy"></iframe> -->
+            </div>
+            <div class="video-caption">
+                <i class="fas fa-play-circle"></i> 点击播放 · 了解礼事利的酿造故事
+            </div>
+        </div>
+    </section>
+
     <!-- ===== ABOUT (a.jpg) ===== -->
-    <section id="about" class="alt">
+    <section id="about">
         <div class="container">
             <h2 class="section-title">关于礼事利</h2>
             <p class="section-sub">双生之酿 · 柑香绮韵</p>
@@ -604,7 +661,7 @@
     </section>
 
     <!-- ===== PRODUCTS (c.jpg, d.jpg, e.jpg, g.jpg) ===== -->
-    <section id="products">
+    <section id="products" class="alt">
         <div class="container">
             <h2 class="section-title">产品系列</h2>
             <p class="section-sub">法桶 · 美桶 · 礼盒 · 新品威士忌</p>
@@ -666,7 +723,7 @@
     </section>
 
     <!-- ===== WORKSHOP (h.jpg, i.jpg) ===== -->
-    <section id="workshop" class="alt">
+    <section id="workshop">
         <div class="container">
             <h2 class="section-title">酿造实景</h2>
             <p class="section-sub">从压榨到陈酿，每一滴都凝聚匠心</p>
@@ -689,7 +746,7 @@
     </section>
 
     <!-- ===== CERTIFICATES (PDFs + j.jpg) ===== -->
-    <section id="certificates">
+    <section id="certificates" class="alt">
         <div class="container">
             <h2 class="section-title">证书与检测报告</h2>
             <p class="section-sub">权威检测 · 品质保障</p>
@@ -741,7 +798,7 @@
     </section>
 
     <!-- ===== CONTACT (info from b.jpg) ===== -->
-    <section id="contact" class="alt">
+    <section id="contact">
         <div class="container">
             <h2 class="section-title">联系礼事利</h2>
             <p class="section-sub">期待与您沟通合作</p>
